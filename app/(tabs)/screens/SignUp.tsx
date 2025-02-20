@@ -10,7 +10,7 @@ import {
 
 import { useRouter } from "expo-router";
 
-const LoginScreen = () => {
+const SignUpScreen = () => {
   const router = useRouter();
 
   // Background Animation
@@ -19,16 +19,16 @@ const LoginScreen = () => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    // Background color animation (Only Purple → Light Pink → Blue)
+    // Background color animation
     Animated.loop(
       Animated.timing(bgAnim, {
         toValue: 1,
-        duration: 8000, // Smooth transition
+        duration: 8000,
         useNativeDriver: false,
       })
     ).start();
 
-    // Fade-in Animation for elements
+    // Fade-in Animation
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1000,
@@ -52,50 +52,40 @@ const LoginScreen = () => {
     ).start();
   }, []);
 
-  // Interpolating background colors (Only Purple → Light Pink → Blue)
+  // Background color interpolation
   const backgroundColor = bgAnim.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: ["#6a0dad", "#f8c8dc", "#4682B4"], // Purple → Light Pink → Blue
+    outputRange: ["#6a0dad", "#f8c8dc", "#4682B4"],
   });
 
   return (
     <Animated.View style={[styles.container, { backgroundColor }]}>
       <Animated.Text style={[styles.title, { opacity: fadeAnim }]}>
-        Login
+        Sign Up
       </Animated.Text>
 
       <Animated.View style={[styles.inputContainer, { opacity: fadeAnim }]}>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#ddd"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="#ddd"
-          secureTextEntry
-        />
+        <TextInput style={styles.input} placeholder="Full Name" placeholderTextColor="#ddd" />
+        <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#ddd" />
+        <TextInput style={styles.input} placeholder="Phone Number" placeholderTextColor="#ddd" keyboardType="phone-pad" />
+        <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#ddd" secureTextEntry />
+        <TextInput style={styles.input} placeholder="Confirm Password" placeholderTextColor="#ddd" secureTextEntry />
       </Animated.View>
 
       <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.buttonText}>Login</Text>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/(tabs)/screens/AadhaarAuth")}>
+          <Text style={styles.buttonText}>Proceed</Text>
         </TouchableOpacity>
       </Animated.View>
 
-      <TouchableOpacity style={styles.link} onPress={() => router.push("/(tabs)/screens/SignUp")}>
-        <Text style={styles.link}>Don't have an account? SignUp</Text>
+      <TouchableOpacity style={styles.link} onPress={() => router.push("/(tabs)/screens/Login")}>
+        <Text style={styles.link}>Already have an account? Login</Text>
       </TouchableOpacity>
-      
     </Animated.View>
   );
 };
 
-export default LoginScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -139,5 +129,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-// style={styles.link}
