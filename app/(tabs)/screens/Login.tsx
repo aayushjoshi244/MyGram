@@ -1,143 +1,146 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Animated,
+  Alert,
 } from "react-native";
-
 import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { NavigationProp } from "@react-navigation/native";
 
-const LoginScreen = () => {
+export default function LoginScreen({
+  navigation,
+}: {
+  navigation: NavigationProp<any>;
+}) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
-  // Background Animation
-  const bgAnim = useRef(new Animated.Value(0)).current;
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(1)).current;
-
-  useEffect(() => {
-    // Background color animation (Only Purple → Light Pink → Blue)
-    Animated.loop(
-      Animated.timing(bgAnim, {
-        toValue: 1,
-        duration: 8000, // Smooth transition
-        useNativeDriver: false,
-      })
-    ).start();
-
-    // Fade-in Animation for elements
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
-
-    // Button scale animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(scaleAnim, {
-          toValue: 1.05,
-          duration: 400,
-          useNativeDriver: true,
-        }),
-        Animated.timing(scaleAnim, {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, []);
-
-  // Interpolating background colors (Only Purple → Light Pink → Blue)
-  const backgroundColor = bgAnim.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ["#6a0dad", "#f8c8dc", "#4682B4"], // Purple → Light Pink → Blue
-  });
+  const handleLogin = () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please enter both email and password.");
+      return;
+    }
+    Alert.alert("Success", "Logged in successfully!");
+    router.push("/(tabs)");
+  };
 
   return (
-    <Animated.View style={[styles.container, { backgroundColor }]}>
-      <Animated.Text style={[styles.title, { opacity: fadeAnim }]}>
-        Login
-      </Animated.Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login to myGram</Text>
 
-      <Animated.View style={[styles.inputContainer, { opacity: fadeAnim }]}>
+      <View style={styles.inputContainer}>
+        <Ionicons
+          name="mail-outline"
+          size={20}
+          color="#888"
+          style={styles.icon}
+        />
         <TextInput
           style={styles.input}
           placeholder="Email"
-          placeholderTextColor="#ddd"
+          placeholderTextColor="#888"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Ionicons
+          name="lock-closed-outline"
+          size={20}
+          color="#888"
+          style={styles.icon}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
-          placeholderTextColor="#ddd"
-          secureTextEntry
+          placeholderTextColor="#888"
+          secureTextEntry={!showPassword}
+          value={password}
+          onChangeText={setPassword}
         />
-      </Animated.View>
-
-      <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.buttonText}>Login</Text>
+        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+          <Ionicons
+            name={showPassword ? "eye-off-outline" : "eye-outline"}
+            size={20}
+            color="#888"
+            style={styles.icon}
+          />
         </TouchableOpacity>
-      </Animated.View>
+      </View>
 
-      <TouchableOpacity style={styles.link} onPress={() => router.push("/(tabs)/screens/SignUp")}>
-        <Text style={styles.link}>Don't have an account? SignUp</Text>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+        <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
-      
-    </Animated.View>
-  );
-};
 
-export default LoginScreen;
+      <TouchableOpacity onPress={() => router.push("/(tabs)/screens/SignUp")}>
+      <Text style={styles.registerText}>
+        Don't have an account? <Text style={styles.registerLink}>Sign Up</Text>
+      </Text>
+    </TouchableOpacity>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#F8F9FA",
+    padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 30,
+    color: "#8B008B",
+    marginBottom: 20,
   },
   inputContainer: {
-    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginBottom: 15,
+    width: "100%",
+    elevation: 2,
+  },
+  icon: {
+    marginRight: 10,
   },
   input: {
-    width: "100%",
-    padding: 15,
-    marginVertical: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    flex: 1,
+    fontSize: 16,
+    color: "#333",
+  },
+  loginButton: {
+    backgroundColor: "#8B008B",
+    paddingVertical: 12,
+    paddingHorizontal: 50,
     borderRadius: 10,
+    marginTop: 10,
+  },
+  loginButtonText: {
     color: "#fff",
-  },
-  button: {
-    backgroundColor: "#8a2be2",
-    padding: 15,
-    borderRadius: 30,
-    marginTop: 20,
-    width: 150,
-    alignItems: "center",
-  },
-  buttonText: {
     fontSize: 18,
-    color: "#fff",
     fontWeight: "bold",
   },
-  link: {
-    color: "#f8c8dc",
+  registerText: {
     marginTop: 15,
-    fontSize: 16,
+    fontSize: 14,
+    color: "#666",
+  },
+  registerLink: {
+    color: "#8B008B",
+    fontWeight: "bold",
   },
 });
-
-// style={styles.link}

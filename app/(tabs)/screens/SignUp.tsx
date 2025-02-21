@@ -1,87 +1,113 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Animated,
+  Alert,
 } from "react-native";
-
 import { useRouter } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 const SignUpScreen = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
-  // Background Animation
-  const bgAnim = useRef(new Animated.Value(0)).current;
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(1)).current;
-
-  useEffect(() => {
-    // Background color animation
-    Animated.loop(
-      Animated.timing(bgAnim, {
-        toValue: 1,
-        duration: 8000,
-        useNativeDriver: false,
-      })
-    ).start();
-
-    // Fade-in Animation
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      useNativeDriver: true,
-    }).start();
-
-    // Button scale animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(scaleAnim, {
-          toValue: 1.05,
-          duration: 400,
-          useNativeDriver: true,
-        }),
-        Animated.timing(scaleAnim, {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, []);
-
-  // Background color interpolation
-  const backgroundColor = bgAnim.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ["#6a0dad", "#f8c8dc", "#4682B4"],
-  });
+  const handleSignUp = () => {
+    if (!fullName || !email || !phone || !password || !confirmPassword) {
+      Alert.alert("Error", "Please fill in all fields.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Passwords do not match.");
+      return;
+    }
+    Alert.alert("Success", "Account created successfully!");
+    router.push("/(tabs)/screens/AadhaarAuth");
+  };
 
   return (
-    <Animated.View style={[styles.container, { backgroundColor }]}>
-      <Animated.Text style={[styles.title, { opacity: fadeAnim }]}>
-        Sign Up
-      </Animated.Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Create an Account</Text>
 
-      <Animated.View style={[styles.inputContainer, { opacity: fadeAnim }]}>
-        <TextInput style={styles.input} placeholder="Full Name" placeholderTextColor="#ddd" />
-        <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#ddd" />
-        <TextInput style={styles.input} placeholder="Phone Number" placeholderTextColor="#ddd" keyboardType="phone-pad" />
-        <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#ddd" secureTextEntry />
-        <TextInput style={styles.input} placeholder="Confirm Password" placeholderTextColor="#ddd" secureTextEntry />
-      </Animated.View>
+      <View style={styles.inputContainer}>
+        <Ionicons name="person-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Full Name"
+          placeholderTextColor="#888"
+          value={fullName}
+          onChangeText={setFullName}
+        />
+      </View>
 
-      <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
-        <TouchableOpacity style={styles.button} onPress={() => router.push("/(tabs)/screens/AadhaarAuth")}>
-          <Text style={styles.buttonText}>Proceed</Text>
+      <View style={styles.inputContainer}>
+        <Ionicons name="mail-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          placeholderTextColor="#888"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Ionicons name="call-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Phone Number"
+          placeholderTextColor="#888"
+          keyboardType="phone-pad"
+          value={phone}
+          onChangeText={setPhone}
+        />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Ionicons name="lock-closed-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="#888"
+          secureTextEntry={!showPassword}
+          value={password}
+          onChangeText={setPassword}
+        />
+        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+          <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={20} color="#888" style={styles.icon} />
         </TouchableOpacity>
-      </Animated.View>
+      </View>
 
-      <TouchableOpacity style={styles.link} onPress={() => router.push("/(tabs)/screens/Login")}>
-        <Text style={styles.link}>Already have an account? Login</Text>
+      <View style={styles.inputContainer}>
+        <Ionicons name="lock-closed-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          placeholderTextColor="#888"
+          secureTextEntry={!showPassword}
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+        />
+      </View>
+
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
-    </Animated.View>
+
+      <TouchableOpacity onPress={() => router.push("/(tabs)/screens/Login")}>
+        <Text style={styles.registerText}>
+          Already have an account? <Text style={styles.registerLink}>Login</Text>
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -92,40 +118,53 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#F8F9FA",
+    padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 30,
+    color: "#8B008B",
+    marginBottom: 20,
   },
   inputContainer: {
-    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginBottom: 15,
+    width: "100%",
+    elevation: 2,
+  },
+  icon: {
+    marginRight: 10,
   },
   input: {
-    width: "100%",
-    padding: 15,
-    marginVertical: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    borderRadius: 10,
-    color: "#fff",
+    flex: 1,
+    fontSize: 16,
+    color: "#333",
   },
   button: {
-    backgroundColor: "#8a2be2",
-    padding: 15,
-    borderRadius: 30,
-    marginTop: 20,
-    width: 150,
-    alignItems: "center",
+    backgroundColor: "#8B008B",
+    paddingVertical: 12,
+    paddingHorizontal: 50,
+    borderRadius: 10,
+    marginTop: 10,
   },
   buttonText: {
-    fontSize: 18,
     color: "#fff",
+    fontSize: 18,
     fontWeight: "bold",
   },
-  link: {
-    color: "#f8c8dc",
+  registerText: {
     marginTop: 15,
-    fontSize: 16,
+    fontSize: 14,
+    color: "#666",
+  },
+  registerLink: {
+    color: "#8B008B",
+    fontWeight: "bold",
   },
 });

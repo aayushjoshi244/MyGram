@@ -143,9 +143,9 @@ const AadhaarAuthScreen = () => {
       {isBiometricVerified && (
         <TouchableOpacity
           style={styles.kycButton}
-          onPress={() => Alert.alert("KYC Approved", "Proceeding to next step...")}
+          onPress={() => router.push("/(tabs)/screens/BankPayment")}
         >
-          <Text style={styles.buttonText}>Approve KYC</Text>
+          <Text style={styles.buttonText}>Complete with UPI</Text>
         </TouchableOpacity>
       )}
     </View>
