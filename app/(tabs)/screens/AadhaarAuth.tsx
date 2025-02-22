@@ -136,7 +136,7 @@ const AadhaarAuthScreen = () => {
 
       {/* Fingerprint Icon Animation */}
       <Animated.View style={[styles.fingerprintBox, { transform: [{ scale: scanAnim }] }]}>
-        <Ionicons name="finger-print" size={50} color="#6A0DAD" />
+        <Ionicons name="finger-print" size={50} color="#1565C0" />
       </Animated.View>
 
       {/* KYC Authentication Button (Visible after Biometric Verification) */}
@@ -159,12 +159,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff", // White Background
+    backgroundColor: "#E3F2FD", // Light Blue Background
   },
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#6A0DAD", // Purple Text
+    color: "#0D47A1", // Deep Blue Text
     marginBottom: 25,
   },
   aadhaarContainer: {
@@ -176,18 +176,18 @@ const styles = StyleSheet.create({
   inputBox: {
     width: 80,
     height: 50,
-    backgroundColor: "#E6E6FA", // Light Purple Background
+    backgroundColor: "#BBDEFB", // Soft Blue Background
     textAlign: "center",
     fontSize: 22,
-    color: "#6A0DAD", // Purple Text
+    color: "#0D47A1", // Deep Blue Text
     borderRadius: 8,
     marginHorizontal: 8,
     letterSpacing: 3,
     borderWidth: 1,
-    borderColor: "#6A0DAD", // Purple Border
+    borderColor: "#0D47A1", // Deep Blue Border
   },
   button: {
-    backgroundColor: "#6A0DAD", // Purple Button
+    backgroundColor: "#1565C0", // Strong Blue Button
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   disabledButton: {
-    backgroundColor: "#B19CD9", // Lighter Purple when disabled
+    backgroundColor: "#90CAF9", // Lighter Blue when disabled
   },
   buttonText: {
     fontSize: 18,
@@ -204,11 +204,11 @@ const styles = StyleSheet.create({
   },
   bioTitle: {
     fontSize: 20,
-    color: "#6A0DAD", // Purple Text
+    color: "#0D47A1", // Deep Blue Text
     marginTop: 30,
   },
   bioButton: {
-    backgroundColor: "#6A0DAD", // Purple Button
+    backgroundColor: "#1976D2", // Medium Blue Button
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
@@ -219,15 +219,15 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 10,
-    backgroundColor: "#E6E6FA", // Light Purple Background
+    backgroundColor: "#BBDEFB", // Soft Blue Background
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
     borderWidth: 2,
-    borderColor: "#6A0DAD", // Purple Border
+    borderColor: "#0D47A1", // Deep Blue Border
   },
   kycButton: {
-    backgroundColor: "#6A0DAD", // Purple Button
+    backgroundColor: "#0D47A1", // Deep Blue Button
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
@@ -235,3 +235,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+

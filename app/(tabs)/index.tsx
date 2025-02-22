@@ -31,7 +31,7 @@ const HomeScreen = () => {
   // Interpolating colors based on animation value
   const backgroundColor = bgAnim.interpolate({
     inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: ["#6a0dad", "#f8c8dc", "#ff4d4d", "#4682B4", "#6a0dad"],
+    outputRange: ["#1E90FF", "#87CEEB", "#4682B4", "#00BFFF", "#1E90FF"], // Different shades of blue
   });
 
   return (
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   roundButton: {
     paddingVertical: 15,
     paddingHorizontal: 30,
-    backgroundColor: "#8a2be2",
+    backgroundColor: "#0056b3", // Deep blue button
     borderRadius: 30,
     justifyContent: "center",
     alignItems: "center",

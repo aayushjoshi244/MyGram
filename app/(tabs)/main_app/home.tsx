@@ -85,7 +85,7 @@ import React from "react";
         <StatusBar hidden={true} />
   
         {/* Header with Gradient Background */}
-        <LinearGradient colors={["#b763b7", "#fff"]} style={styles.headerContainer}>
+        <LinearGradient colors={["#E3F2FD", "#fff"]} style={styles.headerContainer}>
           <Image source={require("@/assets/images/mygram-logo.png")} style={styles.logo} />
           <View style={styles.languageContainer}>
             <Picker
@@ -108,7 +108,7 @@ import React from "react";
             onChangeText={(text) => setSearchQuery(text)}
             value={searchQuery}
           />
-          <Ionicons name="search" size={24} color="#8B008B" style={styles.searchIcon} />
+          <Ionicons name="search" size={24} color="#1E3A8A" style={styles.searchIcon} />
         </View>
   
         {/* Platform Overview */}
@@ -167,7 +167,7 @@ import React from "react";
   }
   
   const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, backgroundColor: "#f8f9fa" },
+    container: { flex: 1, padding: 16, backgroundColor: "#E3F2FD" }, // Light Blue Background
   
     headerContainer: {
       flexDirection: "row",
@@ -176,23 +176,23 @@ import React from "react";
       padding: 15,
       borderRadius: 10,
     },
-    logo: { height: 60, width: 60, borderRadius: 30, borderWidth: 2, borderColor: "#fff" },
+    logo: { height: 60, width: 60, borderRadius: 30, borderWidth: 2, borderColor: "#1E3A8A" }, // Dark Blue Border
     languageContainer: { marginLeft: 10 },
-    picker: { height: 60, width: 150, color: "#000" },
+    picker: { height: 60, width: 150, color: "#0D47A1" }, // Dark Blue Text
   
     searchContainer: {
       flexDirection: "row",
       alignItems: "center",
-      backgroundColor: "#fff",
+      backgroundColor: "#BBDEFB", // Light Blue Background
       paddingHorizontal: 10,
       borderRadius: 10,
       marginTop: 10,
       elevation: 2,
     },
-    searchInput: { flex: 1, height: 40, color: "#333" },
+    searchInput: { flex: 1, height: 40, color: "#0D47A1" }, // Dark Blue Text
     searchIcon: { marginLeft: 5 },
   
-    postContainer: { backgroundColor: "#fff", padding: 10, marginVertical: 8, borderRadius: 10, elevation: 2},
+    postContainer: { backgroundColor: "#BBDEFB", padding: 10, marginVertical: 8, borderRadius: 10, elevation: 2 }, // Light Blue Background
     userInfo: { flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 5 },
     avatar: { width: 40, height: 40, borderRadius: 20 },
     postImage: { width: "100%", height: 250, borderRadius: 10, marginBottom: 8 },
@@ -200,8 +200,8 @@ import React from "react";
     actions: { flexDirection: "row", justifyContent: "space-between", marginTop: 5 },
     actionButton: { flexDirection: "row", alignItems: "center", gap: 5 },
   
-    introContainer: { padding: 16, backgroundColor: "#f8f9fa", borderRadius: 10, marginVertical: 10 },
-    introTitle: { fontSize: 22, fontWeight: "bold", color: "#8B008B", marginBottom: 8 },
-    introText: { fontSize: 16, color: "#333", lineHeight: 24 },
+    introContainer: { padding: 16, backgroundColor: "#E3F2FD", borderRadius: 10, marginVertical: 10 }, // Light Blue Background
+    introTitle: { fontSize: 22, fontWeight: "bold", color: "#1E3A8A", marginBottom: 8 }, // Dark Blue Text
+    introText: { fontSize: 16, color: "#0D47A1", lineHeight: 24 }, // Dark Blue Text
   });
   

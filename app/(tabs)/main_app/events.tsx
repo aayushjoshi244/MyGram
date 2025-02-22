@@ -65,8 +65,8 @@ export default function EventsScreen() {
   
 
   return (
-    <View style={{ flex: 1, padding: 20, paddingTop: 25, backgroundColor: "#F8F8F8" }}>
-      <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15, color:"#8B008B", textAlign:"center" }}>Upcoming Events in your Gram</Text>
+    <View style={{ flex: 1, padding: 20, paddingTop: 25, backgroundColor: "#E3F2FD" }}>
+      <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 15, color:"#1565C0", textAlign:"center" }}>Upcoming Events in your Gram</Text>
 
       {/* Search Bar */}
       <View
@@ -159,7 +159,7 @@ export default function EventsScreen() {
           position: "absolute",
           bottom: 20,
           right: 20,
-          backgroundColor: "#8B008B",
+          backgroundColor: "#1565C0",
           padding: 15,
           borderRadius: 50,
           elevation: 5,

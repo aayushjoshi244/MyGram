@@ -138,19 +138,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#E3F2FD", // Light Blue Background
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#6A0DAD",
+    color: "#0D47A1", // Deep Blue Text
     marginBottom: 20,
   },
   input: {
     width: "100%",
     height: 50,
-    backgroundColor: "#F3E5F5",
+    backgroundColor: "#BBDEFB", // Soft Blue Background
     borderRadius: 10,
     paddingHorizontal: 15,
     marginBottom: 12,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     width: "45%",
   },
   button: {
-    backgroundColor: "#6A0DAD",
+    backgroundColor: "#1565C0", // Strong Blue Button
     padding: 15,
     borderRadius: 30,
     marginTop: 20,

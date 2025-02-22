@@ -163,7 +163,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   email: {
     fontSize: 16,
-    color: "#777",
+    color: "#555",
     marginBottom: 15,
   },
   editButtonText: {
@@ -188,16 +188,16 @@ const styles = StyleSheet.create({
   statNumber: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "#1E3A8A", // Deep Blue
   },
   statLabel: {
     fontSize: 14,
-    color: "#666",
+    color: "#444",
   },
   subscriptionContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#FFF5CC",
+    backgroundColor: "#E3F2FD", // Light Blue
     padding: 15,
     width: "90%",
     borderRadius: 10,
@@ -213,10 +213,10 @@ const styles = StyleSheet.create({
   },
   subscriptionExpiry: {
     fontSize: 14,
-    color: "#555",
+    color: "#444",
   },
   manageButton: {
-    backgroundColor: "#FFD700",
+    backgroundColor: "#64B5F6", // Sky Blue
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 8,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   settingsText: {
     fontSize: 16,
-    color: "#333",
+    color: "#1E3A8A", // Deep Blue
     marginLeft: 12,
     flex: 1,
   },
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
 
   container: {
     flexGrow: 1,
-    backgroundColor: "#F8F9FA",
+    backgroundColor: "#E3F2FD", // Light Blue
     paddingVertical: 30,
     alignItems: "center",
   },
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 30,
     borderWidth: 2,
-    borderColor: "#8B008B",
+    borderColor: "#1E3A8A", // Deep Blue
   },
   userInfo: {
     alignItems: "center",
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 22,
     fontWeight: "bold",
-    color: "#8B008B",
+    color: "#1E3A8A", // Deep Blue
   },
   verificationBadge: {
     flexDirection: "row",
@@ -285,19 +285,19 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   verifiedText: {
-    color: "#007BFF",
+    color: "#007BFF", // Standard Blue
     fontSize: 14,
     marginLeft: 5,
   },
   bio: {
     fontSize: 14,
-    color: "#666",
+    color: "#444",
     marginTop: 5,
   },
   editButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#8B008B",
+    backgroundColor: "#1E3A8A", // Deep Blue
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 8,
@@ -327,14 +327,14 @@ const styles = StyleSheet.create({
   },
   analyticsText: {
     fontSize: 14,
-    color: "#333",
+    color: "#1E3A8A", // Deep Blue
     marginTop: 5,
   },
   savedPosts: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#FFF5CC",
+    backgroundColor: "#E3F2FD", // Light Blue
     paddingVertical: 12,
     width: "90%",
     borderRadius: 10,
@@ -344,6 +344,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 10,
-    color: "#555",
+    color: "#1E3A8A", // Deep Blue
   },
 });
+

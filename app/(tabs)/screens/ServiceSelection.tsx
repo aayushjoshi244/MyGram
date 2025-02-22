@@ -105,19 +105,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#E3F2FD", // Light Blue Background
     paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#6A0DAD",
+    color: "#1E3A8A", // Dark Blue Text
     marginBottom: 20,
   },
   subtitle: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: "#1565C0", // Medium Blue Text
     marginTop: 20,
   },
   optionContainer: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   optionButton: {
-    backgroundColor: "#F3E5F5",
+    backgroundColor: "#BBDEFB", // Light Blue Button
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 10,
@@ -134,13 +134,13 @@ const styles = StyleSheet.create({
   optionText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#333",
+    color: "#0D47A1", // Dark Blue Text
   },
   selectedButton: {
-    backgroundColor: "#6A0DAD",
+    backgroundColor: "#1E90FF", // Bright Blue Selected Button
   },
   serviceButton: {
-    backgroundColor: "#F3E5F5",
+    backgroundColor: "#BBDEFB", // Light Blue Background
     padding: 12,
     margin: 8,
     borderRadius: 8,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     width: "45%",
   },
   nextButton: {
-    backgroundColor: "#6A0DAD",
+    backgroundColor: "#1E90FF", // Strong Blue Button
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
   nextButtonText: {
     fontSize: 18,
-    color: "#fff",
+    color: "#fff", // White Text
     fontWeight: "bold",
   },
 });

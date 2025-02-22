@@ -262,14 +262,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     paddingTop: 25,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#E3F2FD", // Light Blue Background
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 16,
-    color: "#8B008B",
+    color: "#1565C0", // Deep Blue Text
   },
   searchBar: {
     backgroundColor: "#fff",
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#90CAF9", // Light Blue Border
     marginBottom: 10,
   },
   productCard: {
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
   noResults: {
     textAlign: "center",
     fontSize: 16,
-    color: "#666",
+    color: "#555",
     marginTop: 20,
   },
   productImage: {
@@ -313,11 +313,11 @@ const styles = StyleSheet.create({
   },
   productPrice: {
     fontSize: 14,
-    color: "#8B008B",
+    color: "#1565C0", // Deep Blue
     marginTop: 4,
   },
   buyButton: {
-    backgroundColor: "#8B008B",
+    backgroundColor: "#1565C0", // Deep Blue
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 6,
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 20,
     right: 20,
-    backgroundColor: "#8B008B",
+    backgroundColor: "#1565C0", // Deep Blue
     padding: 15,
     borderRadius: 50,
     elevation: 5,
@@ -338,3 +338,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+

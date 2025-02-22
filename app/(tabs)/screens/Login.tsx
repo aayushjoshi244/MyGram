@@ -32,19 +32,19 @@ export default function LoginScreen({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login to myGram</Text>
+      <Text style={styles.title}>Login to MyGram</Text>
 
       <View style={styles.inputContainer}>
         <Ionicons
           name="mail-outline"
           size={20}
-          color="#888"
+          color="#555"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
           placeholder="Email"
-          placeholderTextColor="#888"
+          placeholderTextColor="#555"
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
@@ -55,13 +55,13 @@ export default function LoginScreen({
         <Ionicons
           name="lock-closed-outline"
           size={20}
-          color="#888"
+          color="#555"
           style={styles.icon}
         />
         <TextInput
           style={styles.input}
           placeholder="Password"
-          placeholderTextColor="#888"
+          placeholderTextColor="#555"
           secureTextEntry={!showPassword}
           value={password}
           onChangeText={setPassword}
@@ -70,7 +70,7 @@ export default function LoginScreen({
           <Ionicons
             name={showPassword ? "eye-off-outline" : "eye-outline"}
             size={20}
-            color="#888"
+            color="#555"
             style={styles.icon}
           />
         </TouchableOpacity>
@@ -81,10 +81,10 @@ export default function LoginScreen({
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => router.push("/(tabs)/screens/SignUp")}>
-      <Text style={styles.registerText}>
-        Don't have an account? <Text style={styles.registerLink}>Sign Up</Text>
-      </Text>
-    </TouchableOpacity>
+        <Text style={styles.registerText}>
+          Don't have an account? <Text style={styles.registerLink}>Sign Up</Text>
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -94,19 +94,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F8F9FA",
+    backgroundColor: "#E3F2FD", // Light Blue Background
     padding: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#8B008B",
+    color: "#1E3A8A", // Dark Blue
     marginBottom: 20,
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 10,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   loginButton: {
-    backgroundColor: "#8B008B",
+    backgroundColor: "#1E90FF", // Strong Blue Button
     paddingVertical: 12,
     paddingHorizontal: 50,
     borderRadius: 10,
@@ -137,10 +137,10 @@ const styles = StyleSheet.create({
   registerText: {
     marginTop: 15,
     fontSize: 14,
-    color: "#666",
+    color: "#333",
   },
   registerLink: {
-    color: "#8B008B",
+    color: "#1E90FF",
     fontWeight: "bold",
   },
 });

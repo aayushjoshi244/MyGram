@@ -118,13 +118,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F8F9FA",
+    backgroundColor: "#E3F2FD",
     padding: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#8B008B",
+    color: "#1E3A8A",
     marginBottom: 20,
   },
   inputContainer: {
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   button: {
-    backgroundColor: "#8B008B",
+    backgroundColor: "#1E90FF",
     paddingVertical: 12,
     paddingHorizontal: 50,
     borderRadius: 10,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     color: "#666",
   },
   registerLink: {
-    color: "#8B008B",
+    color: "#1E90FF",
     fontWeight: "bold",
   },
 });
